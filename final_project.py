@@ -63,5 +63,81 @@ Before you write code, fill this in (it will keep you honest all week):
 Build your project below (and split it into more .py files if it gets big;
 the grader reads all of them). Delete this line and start!
 '''
+#imports------
+import pygame as pg
+from pygame.math import Vector2
 
-print("My final project is not built yet!")
+#------------------ final project ---------------------------
+#initialize pygame
+pg.init()
+
+#create clock
+clock = pg.time.Clock()
+
+waypoints = [
+  (100,100),
+  (400, 200),
+  (400, 100),
+  (200, 300)
+]
+
+#create game window
+screen = pg.display.set_mode((640, 640))
+pg.display.set_caption("Castle TD")
+
+#load images
+enemy_image = pg.image.load('').conver_alpha()
+
+enemy = Enemy((waypoints), enemy_image)
+
+#create groups
+enemy_group = pg.sprite.Group()
+enemy_group.add(enemy)
+
+
+#updage groups
+enemy_group.update()
+#game loop
+run = True
+while run:
+
+  clock.tick(60)
+
+  screen.fill("grey100")
+
+  #enemy path
+  pg.draw.lines(screen, "grey0", False, waypoints)
+
+  #draw groups
+  enemy_group.draw(screen)
+
+  for event in pg.event.get():
+    if event.type == pg.QUIT:
+      run = False
+
+  #update display
+  pg.display.flip()
+
+pg.quit()
+
+#------------------ enemies ---------------------------
+class Enemy(pg.sprite.Sprite):
+  def __init__(self, waypoints, image):
+    pg.sprite.Sprite.__init_(self)
+    self.waypoints = waypoints
+    self.pos = Vector2(self.waypoints[0])
+    self.target_waypoints = 1
+    self.speed = 2
+    self.image = image
+    self.rect = self.image.get_rect()
+    self.rect.center = self.pos
+
+  def update(self):
+    self.move
+
+  def move(self):
+    self.target = Vector2(self.waypoints[self.target_waypoint])
+    self.movement = self.target - self.pos
+    self.pos += self.movement.normalize() * self.speed
+    self.rect.center = self.poslf.target_waypoint])
+    self.movement = self.target - self.pos()lf.pos += (self.movement.normalisze())self.rect.center = self.pos * self.speed
