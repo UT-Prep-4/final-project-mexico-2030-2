@@ -75,9 +75,6 @@ Green_color = "#0D00FF"
 
 
 class Tic_Tac_Toe():
-    # ------------------------------------------------------------------
-    # Initialization Functions:
-    # ------------------------------------------------------------------
     def __init__(self):
         self.window = Tk()
         self.window.title('Tic-Tac-Toe')
@@ -117,11 +114,6 @@ class Tic_Tac_Toe():
         self.player_X_turns = self.player_X_starts
         self.board_status = np.zeros(shape=(3, 3))
 
-    # ------------------------------------------------------------------
-    # Drawing Functions:
-    # The modules required to draw required game based object on canvas
-    # ------------------------------------------------------------------
-
     def draw_O(self, logical_position):
         logical_position = np.array(logical_position)
         # logical_position = grid value on the board
@@ -144,7 +136,7 @@ class Tic_Tac_Toe():
 
         if self.X_wins:
             self.X_score += 1
-            text = 'Winner: Player 1 (X)'
+            text = 'Winner:(X)'
             color = symbol_X_color
         elif self.O_wins:
             self.O_score += 1
@@ -172,11 +164,6 @@ class Tic_Tac_Toe():
         score_text = 'Click to play again \n'
         self.canvas.create_text(size_of_board / 2, 15 * size_of_board / 16, font="cmr 20 bold", fill="gray",
                                 text=score_text)
-
-    # ------------------------------------------------------------------
-    # Logical Functions:
-    # The modules required to carry out game logic
-    # ------------------------------------------------------------------
 
     def convert_logical_to_grid_position(self, logical_position):
         logical_position = np.array(logical_position, dtype=int)
@@ -241,10 +228,6 @@ class Tic_Tac_Toe():
 
         return gameover
 
-
-
-
-
     def click(self, event):
         grid_position = [event.x, event.y]
         logical_position = self.convert_grid_to_logical_position(grid_position)
@@ -269,7 +252,6 @@ class Tic_Tac_Toe():
             self.canvas.delete("all")
             self.play_again()
             self.reset_board = False
-
 
 game_instance = Tic_Tac_Toe()
 game_instance.mainloop()
