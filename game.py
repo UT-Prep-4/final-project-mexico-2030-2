@@ -40,7 +40,7 @@ path_tile = pg.image.load(
 ).convert_alpha()
 
 Archer_image = pg.image.load(
-    "towers/Archer_tower.png"
+    "Towers/Archer_tower.png"
 ).convert_alpha()
 
 Archerbuy_image = pg.image.load(
@@ -95,7 +95,7 @@ wave_manager = WaveManager(
 
 tower_button = Button(
     c.SCREEN_WIDTH + 10,
-    10,
+    60,
     Archerbuy_image
 )
 
@@ -130,14 +130,15 @@ font = pg.font.SysFont("arial", 20)
 placing_tower = False
 selected_tower = None
 TOWER_COST = 150
-coins = Player.coins
+player = Player()
+coins = player.coins
 
 # ------------------------
 # Helper Functions
 # ------------------------
 
 def create_tower(mouse_pos):
-    if not Player.spend_coins(TOWER_COST):
+    if not player.spend_coins(TOWER_COST):
         return
 
     tower = Tower(mouse_pos, tower_spritesheet)
@@ -246,19 +247,19 @@ while run:
         "white",
     )
 
-    coin_text = font.render(
-    f"Coins: {Player.coins}",
+    coins_text = font.render(
+    f"Coins: {player.coins}",
     True,
     (255, 255, 0)
     )
 
     life_text = font.render(
-    f"Lives: {Player.lives}",
+    f"Lives: {player.lives}",
     True,
     (255, 0, 0)
     )
 
-    screen.blit(coin_text, (c.SCREEN_WIDTH + 10, 10))
+    screen.blit(coins_text, (c.SCREEN_WIDTH + 10, 10))
     screen.blit(life_text, (c.SCREEN_WIDTH + 10, 35))
 
     screen.blit(
