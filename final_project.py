@@ -133,7 +133,7 @@ class Tic_Tac_Toe():
 
         if self.X_wins:
             self.X_score += 1
-            text = 'Winner: (X)'
+            text = 'Winner: Player 1 (X)'
             color = symbol_X_color
         elif self.O_wins:
             self.O_score += 1
@@ -229,5 +229,7 @@ class Tic_Tac_Toe():
             self.canvas.delete("all")
             self.play_again()
             self.reset_board = False
+
+
 game_instance = Tic_Tac_Toe()
 game_instance.mainloop()
