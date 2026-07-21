@@ -1,18 +1,13 @@
-# Project Title (REPLACE THIS with your project's name)
+# Tic-Tac-Toe
 
 ## What it is
-REPLACE THIS: 2-4 sentences a stranger could understand. What does your program
-do? What makes it cool? This is the paragraph you would put on a resume or in a
-college application, so write it like you're proud of it.
+Our program runs the game Tic-Tac-Toe. we made it keep score of the wins and ties after every round.
 
 ## How to run it
-REPLACE THIS: exact steps. For example: "Run python final_project.py in the
-terminal, then open port 6080 to see the game window. Use the arrow keys to move."
+Run the file using the run button in the top right. Go to "Ports" in the panel. Click the internet button on the port 6080 to open it on your browser. Click the connect button. Play as much as you want.
 
 ## How it works
-REPLACE THIS: 2-4 sentences on the interesting part of the code. Which function
-does the magic? What was the hardest bug you fixed?
+The game works by the program making a three by three grid with clickable buttons in each section. Every click puts down either a circle or X and switches to the next player's turn. The round ends when one player gets three in a row. That adds one point to their score. If no one gets three in a row, the round ends and a point will be added to the tie count.
 
 ## Built by
-REPLACE THIS: your name(s), and anything you used for help or inspiration
-(tutorials, art sources, your instructor, teammates).
+Nick, Miguel, and Salvador
